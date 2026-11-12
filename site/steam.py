@@ -43,7 +43,7 @@ EXCERPT_CHARS = 220
 
 
 def fetch(url):
-    request = urllib.request.Request(url, headers={"User-Agent": "clicker-button-site/1.0"})
+    request = urllib.request.Request(url, headers={"User-Agent": "the-last-button-site/1.0"})
     with urllib.request.urlopen(request, timeout=30) as response:
         return json.loads(response.read().decode("utf-8"))
 

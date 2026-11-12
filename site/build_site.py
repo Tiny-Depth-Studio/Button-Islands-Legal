@@ -180,7 +180,7 @@ SHOT = """      <a class="shot{extra}" href="{href}">
 
 EMAIL = "tinydepthstudio@gmail.com"
 STUDIO_URL = "https://tiny-depth-studio.github.io/"
-SITE_URL = "https://tiny-depth-studio.github.io/Clicker-Button-Legal/"
+SITE_URL = "https://tiny-depth-studio.github.io/The-Last-Button-Legal/"
 
 
 def esc(text):

@@ -16,7 +16,7 @@ Same layout as `Clicker-Ore-Legal`, so a fix in one carries over to the other.
 | --- | --- |
 | `steam.py` | the only place that talks to Steam. Writes `data/steam.json` once the store page is public. |
 | `data/steam.json` | **generated, committed.** Store copy, artwork URLs, the six newest announcements. Absent until launch. |
-| `data/prelaunch.json` | hand-written stand-in used while `steam.json` does not exist: store short description, local artwork under `assets/`, "coming soon" call to action. |
+| `data/prelaunch.json` | hand-written stand-in used while `steam.json` does not exist: store short description and the "coming soon" call to action. It carries no artwork and no screenshots (`header_image` empty, `screenshots` empty), so nothing of the unreleased game is published before the store page is; the page then shows no hero art, no gallery, no `og:image` and no Screenshots link. |
 | `build_site.py` | renders `index.html` and `404.html` (served by Pages for any missing path) and refreshes the Content-Security-Policy hash in `privacy-policy.html` and `terms-of-service.html`. |
 | `landing_style.py` | the landing page stylesheet (Clicker Ore's, recoloured to the Clicker Button sky blue and button gold). |
 
@@ -25,8 +25,8 @@ Same layout as `Clicker-Ore-Legal`, so a fix in one carries over to the other.
 Steam's `appdetails` answers `success: false` until the store page is public. `steam.py`
 then writes nothing and the page renders from `prelaunch.json`. The first scheduled run
 after the page goes public writes `steam.json`, and the landing page switches to the
-store data, the Steam call to action and the announcements on its own. After that,
-`assets/store` and `assets/screenshots` are no longer referenced and can be deleted.
+store data, the Steam call to action and the announcements on its own, with the artwork and
+screenshots served from Steam's CDN. No game image is ever committed to this repository.
 
 ## Security
 

@@ -4,7 +4,7 @@
       "Tiny Depth Studio"
     ],
     "genres": [],
-    "header_image": "assets/store/header.jpg",
+    "header_image": "",
     "id": 5526030,
     "is_free": false,
     "name": "Clicker Button",
@@ -17,15 +17,6 @@
     "store_url": "https://store.steampowered.com/app/5526030/"
   },
   "news": [],
-  "screenshots": [
-    {"full": "assets/screenshots/01_board.jpg", "thumb": "assets/screenshots/01_board_thumb.jpg"},
-    {"full": "assets/screenshots/02_angle.jpg", "thumb": "assets/screenshots/02_angle_thumb.jpg"},
-    {"full": "assets/screenshots/03_late.jpg", "thumb": "assets/screenshots/03_late_thumb.jpg"},
-    {"full": "assets/screenshots/04_shop.jpg", "thumb": "assets/screenshots/04_shop_thumb.jpg"},
-    {"full": "assets/screenshots/05_perks.jpg", "thumb": "assets/screenshots/05_perks_thumb.jpg"},
-    {"full": "assets/screenshots/06_upgrades.jpg", "thumb": "assets/screenshots/06_upgrades_thumb.jpg"},
-    {"full": "assets/screenshots/07_closeup.jpg", "thumb": "assets/screenshots/07_closeup_thumb.jpg"},
-    {"full": "assets/screenshots/08_aurora.jpg", "thumb": "assets/screenshots/08_aurora_thumb.jpg"}
-  ],
+  "screenshots": [],
   "trailer": null
 }

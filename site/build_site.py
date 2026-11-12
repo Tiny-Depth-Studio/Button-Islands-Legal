@@ -61,8 +61,7 @@ PAGE = """<!DOCTYPE html>
 <meta name="description" content="{description}">
 <meta property="og:title" content="{name}">
 <meta property="og:description" content="{description}">
-<meta property="og:image" content="{og_image}">
-<meta property="og:type" content="website">
+{og_image}<meta property="og:type" content="website">
 <style>{css}</style>
 </head>
 <body>
@@ -78,37 +77,20 @@ PAGE = """<!DOCTYPE html>
 </div>
 
 <header class="hero" id="top">
-  <img class="hero-bg" src="{header_image}" alt="" role="presentation">
-  <div class="wrap">
+{hero_bg}  <div class="wrap">
     <a class="kicker studio-link" href="{studio_url}">{developer}</a>
     <h1>{name}</h1>
     <p class="lede">{description}</p>
     <div class="hero-actions">
       {hero_cta}
-      <a class="btn ghost" href="#media">See screenshots</a>
-    </div>
+{media_link}    </div>
     <div class="chips">{chips}</div>
-    <a class="hero-art" href="{art_href}" aria-label="{name}">
-      <img src="{header_image}" alt="{name} store artwork" width="920" height="430">
-    </a>
-  </div>
+{hero_art}  </div>
 </header>
 
 <main>
 {news_block}
-  <section class="block" id="media">
-    <div class="wrap">
-      <div class="block-head">
-        <span class="kicker">Gallery</span>
-        <h2>On the board</h2>
-        <p class="block-dek">{media_dek}</p>
-      </div>
-      <div class="media-grid">
-{media}
-      </div>
-    </div>
-  </section>
-
+{media_block}
   <section class="block" id="legal">
     <div class="wrap">
       <div class="block-head">
@@ -283,11 +265,12 @@ def calls_to_action(app):
     return hero, topbar
 
 
-def nav_links(has_news):
+def nav_links(has_news, has_media):
     links = []
     if has_news:
         links.append('      <a href="#news">Updates</a>')
-    links.append('      <a href="#media">Screenshots</a>')
+    if has_media:
+        links.append('      <a href="#media">Screenshots</a>')
     links.append('      <a href="#legal">Legal</a>')
     return "\n".join(links)
 
@@ -331,6 +314,34 @@ def media_tiles(data):
     return "\n".join(tiles)
 
 
+MEDIA_BLOCK = """  <section class="block" id="media">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="kicker">Gallery</span>
+        <h2>On the board</h2>
+        <p class="block-dek">{media_dek}</p>
+      </div>
+      <div class="media-grid">
+{media}
+      </div>
+    </div>
+  </section>
+"""
+
+
+def artwork(app, has_media):
+    image = app.get("header_image") or ""
+    if not image:
+        return "", "", ""
+    href = app["store_url"] if app["store_live"] else ("#media" if has_media else "#top")
+    og = '<meta property="og:image" content="{0}">\n'.format(esc(absolute(image)))
+    background = '  <img class="hero-bg" src="{0}" alt="" role="presentation">\n'.format(esc(image))
+    art = ('    <a class="hero-art" href="{0}" aria-label="{1}">\n'
+           '      <img src="{2}" alt="{1} store artwork" width="920" height="430">\n'
+           '    </a>\n').format(esc(href), esc(app["name"]), esc(image))
+    return og, background, art
+
+
 def absolute(url):
     return url if url.startswith("https://") else SITE_URL + url
 
@@ -344,6 +355,8 @@ def main():
     media_dek = "{0} shots from the board{1}.".format(
         shots, ", plus the trailer" if data.get("trailer") else "")
     hero_cta, topbar_cta = calls_to_action(app)
+    has_media = shots > 0 or bool(data.get("trailer"))
+    og_image, hero_bg, hero_art = artwork(app, has_media)
     css = style_module.CSS
 
     page = PAGE.format(
@@ -352,17 +365,17 @@ def main():
         name=esc(app["name"]),
         tagline="Shape-fitting 3D clicker game",
         description=esc(app["short_description"]),
-        header_image=esc(app["header_image"]),
-        og_image=esc(absolute(app["header_image"])),
-        art_href=esc(app["store_url"] if app["store_live"] else "#media"),
-        nav=nav_links(bool(news)),
+        og_image=og_image,
+        hero_bg=hero_bg,
+        hero_art=hero_art,
+        media_link='      <a class="btn ghost" href="#media">See screenshots</a>\n' if has_media else "",
+        media_block=MEDIA_BLOCK.format(media_dek=esc(media_dek), media=media_tiles(data)) if has_media else "",
+        nav=nav_links(bool(news), has_media),
         topbar_cta=topbar_cta,
         hero_cta=hero_cta,
         developer=esc((app.get("developers") or ["Tiny Depth Studio"])[0]),
         chips=chips(app),
         news_block=news_block(data),
-        media=media_tiles(data),
-        media_dek=esc(media_dek),
         year=datetime.datetime.fromtimestamp(newest, datetime.timezone.utc).year if newest else 2026,
         updated="Updated " + stamp(newest) if newest else "",
         email=EMAIL,

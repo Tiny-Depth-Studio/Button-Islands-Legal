@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-gPWKrjz1qehoTemBPgBH96KRgfH2qKdjHrLjHv+y++o='; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-n3mP+lCe+GFrjNd13BlgAT2yRVoaErwi/ad2/MhFefE='; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — The Last Button</title>
@@ -12,7 +12,10 @@
     --bg: #f6f9fd;
     --surface: #ffffff;
     --surface-soft: #eef5fc;
-    --sky: #dcefff;
+    --sky-top: #3fb4ff;
+    --sky-mid: #8fd6ff;
+    --sky-low: #d9f3ff;
+    --on-sky: #1a2a4a;
     --ink: #142038;
     --ink-dim: #4a5874;
     --ink-faint: #7a879f;
@@ -30,7 +33,15 @@
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: linear-gradient(180deg, var(--sky) 0, var(--bg) 340px) no-repeat, var(--bg);
+    min-height: 100vh;
+    background:
+      radial-gradient(38% 14% at 14% 22%, rgba(255, 255, 255, 0.85), transparent 70%),
+      radial-gradient(30% 11% at 22% 26%, rgba(255, 255, 255, 0.7), transparent 70%),
+      radial-gradient(34% 12% at 84% 14%, rgba(255, 255, 255, 0.8), transparent 70%),
+      radial-gradient(26% 10% at 76% 19%, rgba(255, 255, 255, 0.65), transparent 70%),
+      radial-gradient(40% 12% at 60% 62%, rgba(255, 255, 255, 0.55), transparent 70%),
+      linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 42%, var(--sky-low) 100%);
+    background-attachment: fixed;
     color: var(--ink);
     font-family: var(--font);
     font-size: 17px;
@@ -67,18 +78,18 @@
     gap: 0.4rem;
     font-size: 0.88rem;
     font-weight: 600;
-    color: var(--ink-dim);
+    color: var(--on-sky);
     text-decoration: none;
     margin-bottom: 1.4rem;
   }
-  .back-link:hover { color: var(--accent); }
+  .back-link:hover { color: #ffffff; }
 
   .eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.16em;
     font-size: 0.74rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--on-sky);
     margin-bottom: 0.5rem;
   }
 
@@ -94,12 +105,12 @@
 
   .updated {
     font-size: 0.86rem;
-    color: var(--ink-faint);
+    color: var(--on-sky);
     margin: 0 0 2rem;
   }
 
   .lede {
-    color: var(--ink-dim);
+    color: var(--on-sky);
     font-size: 1.04rem;
     margin: 0 0 2rem;
   }
@@ -167,8 +178,8 @@
   footer {
     margin-top: 2.4rem;
     padding-top: 1.4rem;
-    border-top: 1px solid var(--line);
-    color: var(--ink-faint);
+    border-top: 1px solid rgba(26, 42, 74, 0.15);
+    color: var(--ink-dim);
     font-size: 0.84rem;
     display: flex;
     flex-wrap: wrap;

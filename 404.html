@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https://shared.akamai.steamstatic.com https://cdn.akamai.steamstatic.com https://shared.fastly.steamstatic.com https://shared.cloudflare.steamstatic.com; style-src 'sha256-3AslR0agWW0q5Dfwvr64IMjJccl5XSTqe6jQ7upXOB4='; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https://shared.akamai.steamstatic.com https://cdn.akamai.steamstatic.com https://shared.fastly.steamstatic.com https://shared.cloudflare.steamstatic.com; style-src 'sha256-z8MTO/jfqL0MkomnDN0tfIOCDRZDn8WQQXea8gNuVDY='; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Page not found - The Last Button</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,8 +12,11 @@
     --bg: #f6f9fd;
     --surface: #ffffff;
     --surface-soft: #eef5fc;
-    --sky: #dcefff;
+    --sky-top: #3fb4ff;
+    --sky-mid: #8fd6ff;
+    --sky-low: #d9f3ff;
     --sky-strong: #9fd3ff;
+    --on-sky: #1a2a4a;
     --ink: #142038;
     --ink-dim: #4a5874;
     --ink-faint: #7a879f;
@@ -33,7 +36,15 @@
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: var(--bg);
+    min-height: 100vh;
+    background:
+      radial-gradient(38% 14% at 14% 22%, rgba(255, 255, 255, 0.85), transparent 70%),
+      radial-gradient(30% 11% at 22% 26%, rgba(255, 255, 255, 0.7), transparent 70%),
+      radial-gradient(34% 12% at 84% 14%, rgba(255, 255, 255, 0.8), transparent 70%),
+      radial-gradient(26% 10% at 76% 19%, rgba(255, 255, 255, 0.65), transparent 70%),
+      radial-gradient(40% 12% at 60% 62%, rgba(255, 255, 255, 0.55), transparent 70%),
+      linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 42%, var(--sky-low) 100%);
+    background-attachment: fixed;
     color: var(--ink);
     font-family: var(--font);
     font-size: 17px;
@@ -137,8 +148,10 @@
     isolation: isolate;
     overflow: hidden;
     padding: clamp(4rem, 11vw, 7rem) 0 clamp(3.4rem, 8vw, 5rem);
-    background: linear-gradient(180deg, var(--sky) 0%, #eef7ff 60%, var(--bg) 100%);
   }
+  .hero .kicker { color: var(--on-sky); }
+  .hero .lede { color: var(--on-sky); }
+  a.studio-link:hover { color: #ffffff; }
   .kicker {
     display: inline-block;
     font-size: 0.74rem;
@@ -148,7 +161,6 @@
     color: var(--accent);
     margin-bottom: 1rem;
   }
-  a.studio-link:hover { color: var(--accent-hover); }
   .hero h1 {
     font-size: clamp(2.6rem, 8vw, 4.4rem);
     line-height: 1.04;
@@ -252,7 +264,7 @@
   .legal-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; }
   footer.site {
     padding: 2rem 0 3rem;
-    color: var(--ink-faint);
+    color: var(--ink-dim);
     font-size: 0.86rem;
     display: flex;
     flex-direction: column;

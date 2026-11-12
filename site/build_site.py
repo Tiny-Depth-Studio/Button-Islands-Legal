@@ -68,7 +68,7 @@ PAGE = """<!DOCTYPE html>
 
 <div class="topbar">
   <div class="topbar-inner">
-    <a class="topbar-brand" href="#top">&#9635; {name}</a>
+    <a class="topbar-brand" href="#top">{name}</a>
     <nav class="topbar-nav" aria-label="Sections">
 {nav}
     </nav>
@@ -77,7 +77,7 @@ PAGE = """<!DOCTYPE html>
 </div>
 
 <header class="hero" id="top">
-{hero_bg}  <div class="wrap">
+  <div class="wrap">
     <a class="kicker studio-link" href="{studio_url}">{developer}</a>
     <h1>{name}</h1>
     <p class="lede">{description}</p>
@@ -93,6 +93,7 @@ PAGE = """<!DOCTYPE html>
 {media_block}
   <section class="block" id="legal">
     <div class="wrap">
+     <div class="panel">
       <div class="block-head">
         <span class="kicker">Legal</span>
         <h2>The small print</h2>
@@ -102,6 +103,7 @@ PAGE = """<!DOCTYPE html>
         <a class="btn ghost" href="privacy-policy.html">Privacy Policy</a>
         <a class="btn ghost" href="terms-of-service.html">Terms of Service</a>
       </div>
+     </div>
     </div>
   </section>
 </main>
@@ -154,6 +156,7 @@ NOT_FOUND = """<!DOCTYPE html>
 
 NEWS_BLOCK = """  <section class="block" id="news">
     <div class="wrap">
+     <div class="panel">
       <div class="block-head">
         <span class="kicker">Updates</span>
         <h2>Fresh off the grid</h2>
@@ -163,6 +166,7 @@ NEWS_BLOCK = """  <section class="block" id="news">
 {news}
       </div>
       <div class="block-more"><a class="btn ghost" href="{news_hub}">All announcements on Steam</a></div>
+     </div>
     </div>
   </section>
 """
@@ -241,9 +245,7 @@ def load_data():
 
 def chips(app):
     values = []
-    if not app["store_live"]:
-        values.append('<span class="chip free">Coming soon to Steam</span>')
-    elif app.get("is_free"):
+    if app["store_live"] and app.get("is_free"):
         values.append('<span class="chip free">Free to play</span>')
     if app.get("release_date"):
         values.append('<span class="chip">Released {0}</span>'.format(esc(app["release_date"])))
@@ -316,6 +318,7 @@ def media_tiles(data):
 
 MEDIA_BLOCK = """  <section class="block" id="media">
     <div class="wrap">
+     <div class="panel">
       <div class="block-head">
         <span class="kicker">Gallery</span>
         <h2>On the board</h2>
@@ -324,6 +327,7 @@ MEDIA_BLOCK = """  <section class="block" id="media">
       <div class="media-grid">
 {media}
       </div>
+     </div>
     </div>
   </section>
 """
@@ -332,14 +336,13 @@ MEDIA_BLOCK = """  <section class="block" id="media">
 def artwork(app, has_media):
     image = app.get("header_image") or ""
     if not image:
-        return "", "", ""
+        return "", ""
     href = app["store_url"] if app["store_live"] else ("#media" if has_media else "#top")
     og = '<meta property="og:image" content="{0}">\n'.format(esc(absolute(image)))
-    background = '  <img class="hero-bg" src="{0}" alt="" role="presentation">\n'.format(esc(image))
     art = ('    <a class="hero-art" href="{0}" aria-label="{1}">\n'
            '      <img src="{2}" alt="{1} store artwork" width="920" height="430">\n'
            '    </a>\n').format(esc(href), esc(app["name"]), esc(image))
-    return og, background, art
+    return og, art
 
 
 def absolute(url):
@@ -356,7 +359,7 @@ def main():
         shots, ", plus the trailer" if data.get("trailer") else "")
     hero_cta, topbar_cta = calls_to_action(app)
     has_media = shots > 0 or bool(data.get("trailer"))
-    og_image, hero_bg, hero_art = artwork(app, has_media)
+    og_image, hero_art = artwork(app, has_media)
     css = style_module.CSS
 
     page = PAGE.format(
@@ -366,7 +369,6 @@ def main():
         tagline="Shape-fitting 3D clicker game",
         description=esc(app["short_description"]),
         og_image=og_image,
-        hero_bg=hero_bg,
         hero_art=hero_art,
         media_link='      <a class="btn ghost" href="#media">See screenshots</a>\n' if has_media else "",
         media_block=MEDIA_BLOCK.format(media_dek=esc(media_dek), media=media_tiles(data)) if has_media else "",

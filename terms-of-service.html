@@ -2,67 +2,37 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-YOS/jVwrG6obigcb7shWvFzRLT+xBjtz/jV7o0n8qOo='; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'sha256-gPWKrjz1qehoTemBPgBH96KRgfH2qKdjHrLjHv+y++o='; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Terms of Service — The Last Button</title>
 <meta name="description" content="Terms of Service for The Last Button by Tiny Depth Studio.">
 <style>
   :root {
-    --bg: #0a0f1a;
-    --bg-elevated: #101827;
-    --bg-card: #131d2e;
-    --text: #eef3fb;
-    --text-dim: #a5b2c8;
-    --text-faint: #6f7d95;
-    --accent: #ffc63a;
-    --accent-strong: #ffd76e;
-    --accent-2: #6fb6ff;
-    --border: #26344d;
-    --border-soft: #1b263a;
-
-    --font-display: "Bahnschrift", "Segoe UI Semibold", "Arial Narrow Bold", "Arial Narrow", sans-serif;
-    --font-body: "Sitka Text", "Iowan Old Style", Georgia, "Times New Roman", serif;
-    --font-mono: "Cascadia Mono", "Consolas", "SF Mono", ui-monospace, monospace;
-  }
-
-  :root[data-theme="light"] {
-    --bg: #eef4fc;
-    --bg-elevated: #e2ebf7;
-    --bg-card: #f6f9fe;
-    --text: #111a2b;
-    --text-dim: #46546b;
-    --text-faint: #6c7a90;
-    --accent: #a86a00;
-    --accent-strong: #855300;
-    --accent-2: #1f63b8;
-    --border: #c3d1e6;
-    --border-soft: #d3dff0;
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) {
-      --bg: #eef4fc;
-      --bg-elevated: #e2ebf7;
-      --bg-card: #f6f9fe;
-      --text: #111a2b;
-      --text-dim: #46546b;
-      --text-faint: #6c7a90;
-      --accent: #a86a00;
-      --accent-strong: #855300;
-      --accent-2: #1f63b8;
-      --border: #c3d1e6;
-      --border-soft: #d3dff0;
-    }
+    --bg: #f6f9fd;
+    --surface: #ffffff;
+    --surface-soft: #eef5fc;
+    --sky: #dcefff;
+    --ink: #142038;
+    --ink-dim: #4a5874;
+    --ink-faint: #7a879f;
+    --accent: #1f6fd6;
+    --accent-hover: #1858ad;
+    --gold: #f2b324;
+    --line: #dde6f1;
+    --line-strong: #c6d3e4;
+    --font: "Segoe UI Variable Text", "Segoe UI", ui-sans-serif, Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-display: "Segoe UI Variable Display", "Segoe UI", ui-sans-serif, Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light;
   }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
+    background: linear-gradient(180deg, var(--sky) 0, var(--bg) 340px) no-repeat, var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
     font-size: 17px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
@@ -70,147 +40,143 @@
     justify-content: center;
   }
 
-  ::selection { background: var(--accent); color: #0a0f1a; }
-  a { color: var(--accent-strong); text-decoration-color: color-mix(in srgb, var(--accent-strong) 40%, transparent); text-underline-offset: 2px; }
-  a:hover { text-decoration-color: var(--accent-strong); }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  ::selection { background: #9fd3ff; color: var(--ink); }
+  a { color: var(--accent); text-decoration-color: rgba(31, 111, 214, 0.35); text-underline-offset: 2px; }
+  a:hover { color: var(--accent-hover); text-decoration-color: var(--accent-hover); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 
   .page {
     width: 100%;
-    max-width: 680px;
-    padding: clamp(2rem, 5vw, 4rem) 1.5rem 4rem;
+    max-width: 760px;
+    padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 4vw, 1.5rem) 4rem;
   }
 
   .strata {
-    height: 8px;
-    width: 100%;
-    border-radius: 3px;
-    margin-bottom: 2rem;
-    background: repeating-linear-gradient(
-      90deg,
-      var(--accent) 0 6%,
-      var(--accent-2) 6% 11%,
-      var(--border-soft) 11% 18%,
-      var(--accent) 18% 24%,
-      var(--border-soft) 24% 34%,
-      var(--accent-2) 34% 40%,
-      var(--accent) 40% 48%,
-      var(--border-soft) 48% 58%,
-      var(--accent-2) 58% 63%,
-      var(--accent) 63% 72%,
-      var(--border-soft) 72% 82%,
-      var(--accent-2) 82% 90%,
-      var(--accent) 90% 100%
-    );
-    opacity: 0.85;
+    height: 4px;
+    width: 72px;
+    border-radius: 2px;
+    margin-bottom: 1.6rem;
+    background: linear-gradient(90deg,
+      #3b86f0 0 16.6%, #1fb3a6 16.6% 33.3%, #3fbf63 33.3% 50%,
+      #f2b324 50% 66.6%, #e8384f 66.6% 83.3%, #8b4fd8 83.3% 100%);
   }
 
   .back-link {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-family: var(--font-display);
-    font-size: 0.82rem;
-    letter-spacing: 0.03em;
-    color: var(--text-dim);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink-dim);
     text-decoration: none;
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.4rem;
   }
-  .back-link:hover { color: var(--accent-strong); }
+  .back-link:hover { color: var(--accent); }
 
   .eyebrow {
-    font-family: var(--font-display);
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    font-size: 0.72rem;
+    font-size: 0.74rem;
+    font-weight: 700;
     color: var(--accent);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
   }
 
   h1 {
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.02em;
     text-wrap: balance;
-    font-size: clamp(1.9rem, 5vw, 2.4rem);
-    margin: 0 0 0.5rem;
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    margin: 0 0 0.4rem;
     line-height: 1.1;
   }
 
   .updated {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--text-faint);
-    margin: 0 0 2.6rem;
+    font-size: 0.86rem;
+    color: var(--ink-faint);
+    margin: 0 0 2rem;
   }
 
   .lede {
-    color: var(--text-dim);
-    font-size: 1.02rem;
-    padding: 1rem 1.2rem;
-    background: var(--bg-card);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 6px 6px 0;
-    margin: 0 0 2.6rem;
+    color: var(--ink-dim);
+    font-size: 1.04rem;
+    margin: 0 0 2rem;
   }
 
+  article {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: clamp(1.4rem, 4vw, 2.4rem);
+    box-shadow: 0 1px 2px rgba(20, 32, 56, 0.06), 0 12px 32px -18px rgba(20, 32, 56, 0.28);
+  }
   article section {
-    margin-bottom: 2.2rem;
-    padding-bottom: 2.2rem;
-    border-bottom: 1px solid var(--border-soft);
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid var(--line);
   }
   article section:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
     border-bottom: none;
   }
 
   h2 {
     font-family: var(--font-display);
-    font-size: 1.15rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    color: var(--text);
-    margin: 0 0 0.8rem;
+    font-size: 1.18rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 0.7rem;
     display: flex;
     align-items: baseline;
-    gap: 0.6rem;
+    gap: 0.7rem;
   }
   h2 .num {
-    font-family: var(--font-mono);
+    flex: none;
+    min-width: 2.1rem;
+    text-align: center;
+    padding: 0.08rem 0;
+    border-radius: 6px;
+    background: var(--surface-soft);
     color: var(--accent);
-    font-size: 0.85rem;
-    font-weight: 400;
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
   }
 
-  p { margin: 0 0 0.9rem; color: var(--text); }
+  p { margin: 0 0 0.9rem; color: var(--ink); }
   section > p:last-child { margin-bottom: 0; }
 
   ul { margin: 0.6rem 0 0; padding-left: 1.3rem; }
-  li { margin-bottom: 0.5rem; color: var(--text); }
+  li { margin-bottom: 0.5rem; color: var(--ink); }
+  li::marker { color: var(--gold); }
   li:last-child { margin-bottom: 0; }
-  strong { color: var(--accent-strong); font-weight: 600; }
+  strong { color: var(--ink); font-weight: 650; }
 
   .contact-box {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem 1.2rem;
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.9rem 1.2rem;
     margin-top: 0.6rem;
   }
-  .contact-box a { font-family: var(--font-mono); font-size: 0.95rem; }
+  .contact-box a { font-weight: 600; }
 
   footer {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-    color: var(--text-faint);
-    font-size: 0.82rem;
+    margin-top: 2.4rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-faint);
+    font-size: 0.84rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem 1rem;
     justify-content: space-between;
   }
-  footer a { color: var(--text-dim); }
-  footer a:hover { color: var(--accent-strong); }
+  footer a { color: var(--ink-dim); }
+  footer a:hover { color: var(--accent); }
 </style>
 </head>
 <body>

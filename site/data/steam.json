@@ -1,0 +1,75 @@
+{
+  "app": {
+    "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/074600ae50b4dfcccdceafcfdac5b0e3bf812781/capsule_231x87.jpg",
+    "developers": [
+      "Tiny Depth Studio"
+    ],
+    "genres": [
+      "Casual",
+      "Indie",
+      "Simulation",
+      "Strategy"
+    ],
+    "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/398fb41a36a98dfec969315de9a83935a3f682d1/header.jpg",
+    "id": 5526030,
+    "is_free": false,
+    "name": "The Last Button",
+    "platforms": [
+      "windows"
+    ],
+    "release_date": "Coming soon",
+    "short_description": "Buy block-shaped buttons, fit them onto a floating board and click them for cash. Harder shapes pay bigger multipliers. Coat buttons in 40 materials, let rabbits, drones and a repair robot work for you, ride out storms and meteor showers, and grow your board until the Last Button fits.",
+    "store_url": "https://store.steampowered.com/app/5526030/"
+  },
+  "news": [],
+  "screenshots": [
+    {
+      "full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/43eecfc35a204e0ebbc6e5c9f5f0412e613fbeec/ss_43eecfc35a204e0ebbc6e5c9f5f0412e613fbeec.1920x1080.jpg",
+      "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/43eecfc35a204e0ebbc6e5c9f5f0412e613fbeec/ss_43eecfc35a204e0ebbc6e5c9f5f0412e613fbeec.600x338.jpg"
+    },
+    {
+      "full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/975a8a722d498abef03e688f671f2bc1936b008e/ss_975a8a722d498abef03e688f671f2bc1936b008e.1920x1080.jpg",
+      "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/975a8a722d498abef03e688f671f2bc1936b008e/ss_975a8a722d498abef03e688f671f2bc1936b008e.600x338.jpg"
+    },
+    {
+      "full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/0534ff105cd9026120afb2a7ff293bde8913f763/ss_0534ff105cd9026120afb2a7ff293bde8913f763.1920x1080.jpg",
+      "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/0534ff105cd9026120afb2a7ff293bde8913f763/ss_0534ff105cd9026120afb2a7ff293bde8913f763.600x338.jpg"
+    },
+    {
+      "full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/f1d80010c3b9050a22ee803da3614a85155edaed/ss_f1d80010c3b9050a22ee803da3614a85155edaed.1920x1080.jpg",
+      "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/f1d80010c3b9050a22ee803da3614a85155edaed/ss_f1d80010c3b9050a22ee803da3614a85155edaed.600x338.jpg"
+    },
+    {
+      "full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/da3bb267413c93d5e4d123034f31c6f4b8c764b3/ss_da3bb267413c93d5e4d123034f31c6f4b8c764b3.1920x1080.jpg",
+      "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/da3bb267413c93d5e4d123034f31c6f4b8c764b3/ss_da3bb267413c93d5e4d123034f31c6f4b8c764b3.600x338.jpg"
+    },
+    {
+      "full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/f08ad8758f2bb2f609dde8c50646b7c7daaf85be/ss_f08ad8758f2bb2f609dde8c50646b7c7daaf85be.1920x1080.jpg",
+      "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/f08ad8758f2bb2f609dde8c50646b7c7daaf85be/ss_f08ad8758f2bb2f609dde8c50646b7c7daaf85be.600x338.jpg"
+    },
+    {
+      "full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/7c81caae3f1bfc3465ce5b48cdf36b1da923fafc/ss_7c81caae3f1bfc3465ce5b48cdf36b1da923fafc.1920x1080.jpg",
+      "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/7c81caae3f1bfc3465ce5b48cdf36b1da923fafc/ss_7c81caae3f1bfc3465ce5b48cdf36b1da923fafc.600x338.jpg"
+    },
+    {
+      "full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/7184526995f1e38820a5e5282b23d794429262e4/ss_7184526995f1e38820a5e5282b23d794429262e4.1920x1080.jpg",
+      "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/7184526995f1e38820a5e5282b23d794429262e4/ss_7184526995f1e38820a5e5282b23d794429262e4.600x338.jpg"
+    },
+    {
+      "full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/0923c14de7e9780fcca5eed6722de704e9a93303/ss_0923c14de7e9780fcca5eed6722de704e9a93303.1920x1080.jpg",
+      "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/0923c14de7e9780fcca5eed6722de704e9a93303/ss_0923c14de7e9780fcca5eed6722de704e9a93303.600x338.jpg"
+    },
+    {
+      "full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/e528d07e870e7010106abafda3ca9d37e6dca368/ss_e528d07e870e7010106abafda3ca9d37e6dca368.1920x1080.jpg",
+      "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/e528d07e870e7010106abafda3ca9d37e6dca368/ss_e528d07e870e7010106abafda3ca9d37e6dca368.600x338.jpg"
+    },
+    {
+      "full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/118bb6447f6bd6714bd5b5cfcc6476e0464ec424/ss_118bb6447f6bd6714bd5b5cfcc6476e0464ec424.1920x1080.jpg",
+      "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5526030/118bb6447f6bd6714bd5b5cfcc6476e0464ec424/ss_118bb6447f6bd6714bd5b5cfcc6476e0464ec424.600x338.jpg"
+    }
+  ],
+  "trailer": {
+    "name": "Gameplay Trailer",
+    "thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257498429/7ccac0646f9de30df0e5f6c7cacdb9747ee0a74f/movie_600x337.jpg"
+  }
+}

@@ -248,7 +248,9 @@ def chips(app):
     if app["store_live"] and app.get("is_free"):
         values.append('<span class="chip free">Free to play</span>')
     if app.get("release_date"):
-        values.append('<span class="chip">Released {0}</span>'.format(esc(app["release_date"])))
+        released = app["release_date"]
+        label = "Released {0}" if released[:1].isdigit() else "{0}"
+        values.append('<span class="chip">{0}</span>'.format(label.format(esc(released))))
     for platform in app.get("platforms", []):
         values.append('<span class="chip">{0}</span>'.format(esc(platform.title())))
     for genre in app.get("genres", [])[:4]:

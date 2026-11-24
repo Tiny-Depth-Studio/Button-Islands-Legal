@@ -15,10 +15,10 @@ Same layout as `Clicker-Ore-Legal`, so a fix in one carries over to the other.
 | File | Holds |
 | --- | --- |
 | `steam.py` | the only place that talks to Steam. Writes `data/steam.json` once the store page is public. |
-| `data/steam.json` | **generated, committed.** Store copy, artwork URLs, the six newest announcements. Absent until launch. |
+| `data/steam.json` | **generated, committed.** Store copy, artwork URLs, the six newest announcements. Absent until launch. While its `name` differs from `prelaunch.json` (Steam still shows an older game name), `build_site.py` uses the name and short description from `prelaunch.json` and drops the header art, announcements and trailer, so the page never shows the old name; it switches back to the full store data on the first build after Steam shows the new name. |
 | `data/prelaunch.json` | hand-written stand-in used while `steam.json` does not exist: store short description and the "coming soon" call to action. It carries no artwork and no screenshots (`header_image` empty, `screenshots` empty), so nothing of the unreleased game is published before the store page is; the page then shows no hero art, no gallery, no `og:image` and no Screenshots link. |
 | `build_site.py` | renders `index.html` and `404.html` (served by Pages for any missing path) and refreshes the Content-Security-Policy hash in `privacy-policy.html` and `terms-of-service.html`. |
-| `landing_style.py` | the landing page stylesheet (Clicker Ore's, recoloured to the The Last Button sky blue and button gold). |
+| `landing_style.py` | the landing page stylesheet (Clicker Ore's, recoloured to the Button Islands sky blue and button gold). |
 
 ## Before and after launch
 

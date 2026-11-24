@@ -184,7 +184,7 @@ SHOT = """      <a class="shot{extra}" href="{href}">
 
 EMAIL = "tinydepthstudio@gmail.com"
 STUDIO_URL = "https://tiny-depth-studio.github.io/"
-SITE_URL = "https://tiny-depth-studio.github.io/The-Last-Button-Legal/"
+SITE_URL = "https://tiny-depth-studio.github.io/Button-Islands-Legal/"
 
 
 def esc(text):
@@ -236,11 +236,18 @@ def stamp_legal_pages():
 
 
 def load_data():
-    if os.path.exists(DATA):
-        data = json.load(io.open(DATA, encoding="utf-8"))
-        data["app"]["store_live"] = True
-        return data
-    return json.load(io.open(PRELAUNCH, encoding="utf-8"))
+    expected = json.load(io.open(PRELAUNCH, encoding="utf-8"))
+    if not os.path.exists(DATA):
+        return expected
+    data = json.load(io.open(DATA, encoding="utf-8"))
+    data["app"]["store_live"] = True
+    if data["app"].get("name") != expected["app"]["name"]:
+        data["app"]["name"] = expected["app"]["name"]
+        data["app"]["short_description"] = expected["app"]["short_description"]
+        data["app"]["header_image"] = ""
+        data["news"] = []
+        data["trailer"] = None
+    return data
 
 
 def chips(app):

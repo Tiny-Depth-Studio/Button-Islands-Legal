@@ -15,7 +15,8 @@
     "is_free": false,
     "name": "The Last Button",
     "platforms": [
-      "windows"
+      "windows",
+      "mac"
     ],
     "release_date": "1 Jan 2027",
     "short_description": "Buy block-shaped buttons, fit them onto a floating board and click them for cash. Harder shapes pay bigger multipliers. Coat buttons in 40 materials, let rabbits, drones and a repair robot work for you, ride out storms and meteor showers, and grow your board until the Last Button fits.",
@@ -24,10 +25,10 @@
   "news": [
     {
       "date": 1795462065,
-      "excerpt": "Hi everyone, The Last Button now has its own page on Steam, and you can add it to your wishlist today. What is The Last Button? A cozy 3D clicker about a floating board full of buttons. Every button you buy comes in a…",
+      "excerpt": "Hi everyone, Button Islands now has its own page on Steam, and you can add it to your wishlist today. What is Button Islands? A cozy 3D clicker about a floating board full of buttons. Every button you buy comes in a…",
       "feedlabel": "Community Announcements",
       "gid": "1849827110443487",
-      "title": "The Last Button is now on Steam: wishlist today",
+      "title": "Button Islands is now on Steam: wishlist today",
       "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110443487"
     }
   ],
